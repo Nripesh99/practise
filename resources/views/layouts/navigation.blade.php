@@ -52,6 +52,20 @@
 
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Manage Sale
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{route('sales.index')}}">See Sale</a></li>
+                        <li><a class="dropdown-item" href="{{route('sales.create')}}"> Add Sales</a></li>
+                        <li><a class="dropdown-item" href="{{route('sales.all')}}"> All Sales</a></li>
+
+
+
+                    </ul>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->

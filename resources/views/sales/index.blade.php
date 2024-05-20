@@ -10,6 +10,10 @@
                             <th scope="col">Name</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Commission</th>
+                            @if (Route::currentRouteName() === 'sales.all')
+                            <th scope="col">Action</th>
+                            @endif
+
                         </tr>
                     </thead>
                     <tbody>
@@ -23,7 +27,18 @@
                                 <td>{{ $sale->name }}</td>
                                 <td>{{$sale->amount}}</td>
                                 <td>{{$sale->commission}}</td>
-                                {{$sales->user->name}}
+                                @if (Route::currentRouteName() === 'sales.all')
+                                <td>
+                                    <form action="{{ route('sales.destroy', $sale->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this sale?')">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                                @endif
+                                {{-- {{$sales->user->name}} --}}
                                 
                             </tr>
                             @php $s_no++   @endphp

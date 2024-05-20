@@ -28,6 +28,13 @@ Route::middleware('auth')->group(function(){
 });
 Route::middleware('auth')->group(function(){
 Route::get('/sales', [SaleController::class, 'index'])->name('sales.index');
+Route::get('/sales/create', [SaleController::class, 'create'])->name('sales.create');
+Route::post('/sales', [SaleController::class, 'store'])->name('sales.store');
+Route::get('/sales/all', [SaleController::class, 'showAll'])->name('sales.all');
+Route::delete('/sales/{sales}', [SaleController::class, 'destroy'])->name('sales.destroy');
+
+
+
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

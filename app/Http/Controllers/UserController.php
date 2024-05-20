@@ -124,7 +124,7 @@ class UserController extends Controller
             'alert-type' => 'success'
         ];
     
-        return redirect()->route('users/index')->with($notification);
+        return redirect()->route('users.index')->with($notification);
     }
     
 
