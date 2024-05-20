@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->foreignId('parent_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->string('password');
+            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });

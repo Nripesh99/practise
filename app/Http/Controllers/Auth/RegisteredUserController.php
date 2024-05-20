@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
             $parent_id =auth()->id();
         }
         else{
-            $parent_id =0;
+            $parent_id=null;
         }
         $user = User::create([
             'name' => $request->name,

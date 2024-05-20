@@ -1,7 +1,8 @@
+@extends('layouts.app')
+@section('content')
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
         @csrf
-
         <!-- Image Upload -->
         <div class="mb-4">
             <label for="image" class="block text-sm font-medium text-gray-700">Profile Image</label>
@@ -54,14 +55,10 @@
         <input type="hidden" name="parent_id" value="0">
         @endif
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
             <x-primary-button class="ms-4">
                 {{ __('Register') }}
             </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
+@endsection

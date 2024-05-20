@@ -12,11 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $faker = \Faker\Factory::create();
+    // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => $faker->unique()->safeEmail,
+            'image' => 'image.jpg',
+            'email_verified_at' => now(),
+            'password' =>  bcrypt('password'),
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        ]);
     }
 }
